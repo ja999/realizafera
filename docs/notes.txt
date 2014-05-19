@@ -1,0 +1,10 @@
+Realizafera
+
+moduł google calendar :P
+flaga powtarzaj na wydarzeniu
+  cron task do tworzenia powtarzająch się wydarzeń (widok 1/2 tygodnie w przód) (tworzymy z offsetem)
+  przy edycji danego powtarzającego się wydarzenia pytamy użytkownika o zasięg edycji
+
+takie samo coś dla wolnych terminów realizacji
+
+dziedziczenia - event to może być zarówno wolny termin jak i realizacja

@@ -1,0 +1,20 @@
+Majkafer
+Aferalex
+
+Pivotal Stories
+jako szef realizatorów chcę mieć możliwość definicji grafiku godzinowego danego dnia
+jako szef realizatorów chcę móc przypisać użytwonika do terminu realizacji
+jako realizator chcę dostawać email z przypomnieniem o moich realizacjach
+trade room dla realizacji [realizatrejda]
+
+User Stories
+U01 - logowanie realizatora/szefa
+U02 - logowanie admina
+U03 - przeglądanie planu tygodnia [realizator/szef]
+U04 - definowanie wolnych terminów realizacji [realizator]
+U05 - przypisanie realizatora do terminu [szef]
+U06 - [admin] może dodawać użytkowników
+U07 - [admin] może edytować [wszystko]
+U08 - email przypominający o realizacjach
+U09 - [szef] email przypominający o niewypełnionych realizacjach
+U10 - [realizator] chcę mieć możliość rezygnacji z danego, przypisanego już terminu realizacji

@@ -1,0 +1,15 @@
+Realizafera
+
+Użytkownicy:
+  - realizatorzy studia emisyjnego,
+  - szef działu realizatorów,
+  - admin - full access.
+
+Opcje i oczekiwane rezultaty:
+  - nic -
+  -
+  -
+
+
+Notes:
+  - parser do utworzenia użytkowników,
