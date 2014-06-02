@@ -1,0 +1,17 @@
+realizacja
+  string star_date
+  string end_date
+  repetitive - flaga która definiuje czy wydarzenie jest powtarzalne
+  cancelled
+  confirmed_by_user -
+  user_id
+
+odwołanie powtarzalnych - repetitive na false, cancelled na true
+
+wolny_termin
+  string star_date
+  string end_date
+  repetitive - flaga która definiuje czy wydarzenie jest powtarzalne
+  user_id
+
+days_of_weeka - entity

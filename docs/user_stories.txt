@@ -1,20 +1,44 @@
 Majkafer
 Aferalex
 
-Pivotal Stories
-jako szef realizatorów chcę mieć możliwość definicji grafiku godzinowego danego dnia
-jako szef realizatorów chcę móc przypisać użytwonika do terminu realizacji
-jako realizator chcę dostawać email z przypomnieniem o moich realizacjach
-trade room dla realizacji [realizatrejda]
-
 User Stories
-U01 - logowanie realizatora/szefa
-U02 - logowanie admina
+U01 - logowanie realizatora/szefa 1
+U02 - logowanie admina 1
 U03 - przeglądanie planu tygodnia [realizator/szef]
-U04 - definowanie wolnych terminów realizacji [realizator]
 U05 - przypisanie realizatora do terminu [szef]
-U06 - [admin] może dodawać użytkowników
-U07 - [admin] może edytować [wszystko]
-U08 - email przypominający o realizacjach
-U09 - [szef] email przypominający o niewypełnionych realizacjach
-U10 - [realizator] chcę mieć możliość rezygnacji z danego, przypisanego już terminu realizacji
+U06 - [admin] może dodawać użytkowników 2
+U07 - [admin] może edytować [wszystko] 0
+
+Jako realizator chcę mieć możliwość definowania wolnych terminów realizacji. 3 - basic CRUD
+
+Jako szef realizatorów chcę mieć możliwość definicji grafiku godzinowego danego dnia. 6
+
+Jako szef realizatorów chcę móc przypisać użytkownika do terminu realizacji. 1
+
+Jako SSE chcę mieć możliwość tworzenia stałych wydarzeń i wyjątków od tych wydarzeń. 1
+
+Jako realizator chcę mieć możliwość tworzenia stałych wolnych terminów realizacji i wyjątków od nich. 1
+
+Jako realizator chcę mieć możłiwość przeglądania moich realizacji. 1/2
+
+Jako realiztor muszę potwierdzić swoją obecność na realizacji. 3
+  - rake task na reset 1/2
+  - rake task na wysylanie 2 (connected shit)
+  - przekierowanie do strony potwierdzenia (realization#show) 1
+
+Jako realizator chcę otrzymywać notyfikacje mailowe o nadchodzących realizacjach. 2
+
+Jako SSE chcę otrzymywać przypomnienia o niewypełnionych terminach realizacji. 1
+
+Jako Szef Studia chcę mieć możliwość oznaczenia danej realizacji jako realizowaną "automatycznie" (bez realizatora). 0
+
+realizatrejda
+  Realizator posiada możliwość zgłoszenia odwołania swojej realizacji, takie wydarzenie trafia do “Giełdy realizacji” i mailem do Szefa Studia. 2
+
+  Realizatorzy, którzy oznaczyli termin odwołanej realizacji jako ich czas dostępności dostają powiadomienie na swój email z pytaniem czy mogą go przejąć. 2
+
+  Realizator w “Giełdzie realizatorów” może oznaczyć wystawione tak wydarzenia jako “przejęte” - system notyfikacji przesyła informację do Szefa, realizatora odwołującego i przejmującego.
+
+Jako admin chcę utworzyć użytkowników z pliku yaml. 1
+
+Szef Studia Emisyjnego może w sposób automatyczny wygenerować plik pdf z rozpiską na dany tydzień.
