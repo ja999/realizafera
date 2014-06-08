@@ -1,0 +1,5 @@
+- if @panel
+  .panel-body
+    != JST["backbone/components/form/templates/content"](@)
+- else
+  != JST["backbone/components/form/templates/content"](@)

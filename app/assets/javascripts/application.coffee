@@ -1,2 +1,10 @@
 #= require jquery
 #= require jquery_ujs
+#= require_tree ./core_ext
+#= require js_stack
+#= require js_stack/plugins/underscore.string
+#= require js_stack/plugins/underscore.inflections
+#= require spin
+#= require jquery.spin
+#= require_tree ./vendor
+#= require backbone/realizafera
