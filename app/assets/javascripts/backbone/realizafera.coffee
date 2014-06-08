@@ -10,7 +10,7 @@
 
   App = new Marionette.Application
 
-  App.on "initialize:before", (options) ->
+  App.on "initialize:before", (options = {}) ->
     App.environment = options.environment
     App.currentUser = options.currentUser
 
