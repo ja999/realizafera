@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140608135311) do
+ActiveRecord::Schema.define(version: 20140608140453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,17 @@ ActiveRecord::Schema.define(version: 20140608135311) do
   end
 
   add_index "broadcasts", ["user_id"], name: "index_broadcasts_on_user_id", using: :btree
+
+  create_table "free_spots", force: true do |t|
+    t.integer "start_day"
+    t.integer "start_hour"
+    t.integer "end_day"
+    t.integer "end_hour"
+    t.boolean "repetitive"
+    t.integer "user_id"
+  end
+
+  add_index "free_spots", ["user_id"], name: "index_free_spots_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.datetime "created_at"
