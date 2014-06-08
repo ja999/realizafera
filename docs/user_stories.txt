@@ -37,8 +37,8 @@ realizatrejda
 
   Realizatorzy, którzy oznaczyli termin odwołanej realizacji jako ich czas dostępności dostają powiadomienie na swój email z pytaniem czy mogą go przejąć. 2
 
-  Realizator w “Giełdzie realizatorów” może oznaczyć wystawione tak wydarzenia jako “przejęte” - system notyfikacji przesyła informację do Szefa, realizatora odwołującego i przejmującego.
+  Realizator w “Giełdzie realizatorów” może oznaczyć wystawione tak wydarzenia jako “przejęte” - system notyfikacji przesyła informację do Szefa, realizatora odwołującego i przejmującego. 2
 
 Jako admin chcę utworzyć użytkowników z pliku yaml. 1
 
-Szef Studia Emisyjnego może w sposób automatyczny wygenerować plik pdf z rozpiską na dany tydzień.
+Szef Studia Emisyjnego może w sposób automatyczny wygenerować plik pdf z rozpiską na dany tydzień. 8
