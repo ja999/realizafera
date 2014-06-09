@@ -36,6 +36,7 @@ end
 
 group :development, :test do
   gem 'pry', github: 'pry/pry'
+  gem 'binding_of_caller'
 end
 
 group :test do
