@@ -1,1 +1,11 @@
 %h1 GRAFIK
+#js-main-region
+
+:javascript
+  $(function() {
+    Realizafera.start({
+      environment: gon.environment,
+      currentUser: gon.current_user
+    })
+  })
+
