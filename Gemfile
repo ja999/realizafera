@@ -12,6 +12,7 @@ gem 'delayed_job'
 gem 'devise'
 gem 'draper'
 gem 'virtus'
+gem 'simple_form'
 
 gem 'sass-rails', '~> 4.0.0'
 gem 'haml-rails'

@@ -5,4 +5,5 @@ Realizafera::Application.routes.draw do
   get 'chief/graphic' => 'chief#graphic'
 
   resources :productions
+  resources :free_spots
 end

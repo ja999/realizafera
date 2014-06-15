@@ -1,0 +1,18 @@
+.container
+  %h2 Moje wolne terminy realizacji
+  %table.table.table-hover
+    %thead
+      %tr
+        %td Od
+        %td Do
+        %td Actions
+    %tbody
+      - free_spots.each do |fs|
+        %tr
+          %td= fs.start_date
+          %td= fs.end_date
+          %td
+            = link_to edit_free_spot_path(fs), class: 'btn btn-success' do
+              %span.glyphicon.glyphicon-pencil
+            = link_to free_spot_path(fs), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do
+              %span.glyphicon.glyphicon-trash
