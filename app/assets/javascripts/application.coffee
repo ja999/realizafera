@@ -1,5 +1,6 @@
 #= require jquery
 #= require jquery_ujs
+#= require bootstrap
 #= require_tree ./core_ext
 #= require js_stack
 #= require js_stack/plugins/underscore.string
