@@ -5,13 +5,21 @@ class FreeSpotDecorator < Draper::Decorator
 
   def start_date
     day = DAYS.fetch(model.start_day).capitalize
-    hours = ", od #{model.start_hour}:#{model.start_minute}"
+    hours = ", od #{time_format(model.start_hour)}:#{time_format(model.start_minute)}"
     day + hours
   end
 
   def end_date
     day = DAYS.fetch(model.end_day).capitalize
-    hours = ", do #{model.end_hour}:#{model.end_minute}"
+    hours = ", do #{time_format(model.end_hour)}:#{time_format(model.end_minute)}"
     day + hours
+  end
+
+  def time_format value
+    if value < 10
+      '0' + value.to_s
+    else
+      value.to_s
+    end
   end
 end
