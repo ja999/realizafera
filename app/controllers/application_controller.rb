@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   alias_method :h, :view_context
 
   before_filter :pass_variables_to_gon
+  before_action :authenticate_user!
 
   private
 
