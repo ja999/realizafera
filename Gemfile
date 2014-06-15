@@ -14,6 +14,7 @@ gem 'draper'
 
 gem 'sass-rails', '~> 4.0.0'
 gem 'haml-rails'
+gem 'bootstrap-sass'
 
 gem 'gon'
 gem 'jquery-rails'
