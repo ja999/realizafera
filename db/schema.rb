@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140609085647) do
+ActiveRecord::Schema.define(version: 20140615151455) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20140609085647) do
     t.integer "end_hour"
     t.boolean "repetitive"
     t.integer "user_id"
+    t.integer "start_minute"
+    t.integer "end_minute"
   end
 
   add_index "free_spots", ["user_id"], name: "index_free_spots_on_user_id", using: :btree
@@ -36,6 +38,8 @@ ActiveRecord::Schema.define(version: 20140609085647) do
     t.boolean "cancelled"
     t.boolean "confirmed_by_user"
     t.integer "user_id"
+    t.integer "start_minute"
+    t.integer "end_minute"
   end
 
   add_index "productions", ["user_id"], name: "index_productions_on_user_id", using: :btree
