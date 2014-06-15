@@ -3,11 +3,14 @@ class Graphic
   include ActiveModel::Serialization
 
   attribute :date, Date
-  attr_reader :productions
 
   def initialize(options = {})
     super
-    @productions = options[:productions] || fetch_productions
+    @productions = options[:productions]
+  end
+
+  def productions
+    @productions ||= fetch_productions
   end
 
   private
