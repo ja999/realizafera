@@ -32,10 +32,10 @@
               = link_to 'Siema', '#'
       %ul.nav.navbar-nav.navbar-right
         %li
-          = link_to 'Siema', '#'
+          %a= "Zalogowano jako: #{ current_user.email }"
         %li.dropdown
           %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-            Dropdown
+            %span.glyphicon.glyphicon-cog
             %b.caret
           %ul.dropdown-menu
             %li
