@@ -11,6 +11,7 @@ gem 'decent_decoration'
 gem 'delayed_job'
 gem 'devise'
 gem 'draper'
+gem 'virtus'
 
 gem 'sass-rails', '~> 4.0.0'
 gem 'haml-rails'
