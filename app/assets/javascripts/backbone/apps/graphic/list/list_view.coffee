@@ -1,7 +1,7 @@
 @Realizafera.module 'GraphicApp.List', (List, App, Backbone, Marionette, $, _) ->
 
   class List.GraphicWrapper extends App.Views.Shared.WrapperView
-    className: 'graphic-day-wrapper col-lg-1'
+    className: 'graphic-day-wrapper'
 
 
   class List.GraphicsView extends App.Views.CollectionView
