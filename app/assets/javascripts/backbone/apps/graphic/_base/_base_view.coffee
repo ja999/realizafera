@@ -2,6 +2,7 @@
 
   class Base.Layout extends App.Views.Layout
     template: 'graphic/_base/layout'
+    className: 'graphic-day'
 
     regions:
       productionsRegion: '.js-region-productions'

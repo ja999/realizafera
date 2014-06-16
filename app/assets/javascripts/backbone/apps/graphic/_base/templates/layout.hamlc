@@ -1,2 +1,2 @@
-= @date.format('YYYY-MM-DD')
+%p.graphic-day-header= @date.format('YYYY-MM-DD')
 .js-region-productions
