@@ -10,6 +10,13 @@
       new GraphicApp.List.Controller
 
 
+    _base: (date, region, model) ->
+      new GraphicApp.Base.Controller { date, region, model }
+
+
   App.addInitializer ->
     new GraphicApp.Router
       controller: API
+
+    App.vent.on '_base:graphic', (date, region, model) ->
+      API._base(date, region, model)
