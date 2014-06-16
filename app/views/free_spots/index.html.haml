@@ -16,3 +16,5 @@
               %span.glyphicon.glyphicon-pencil
             = link_to free_spot_path(fs), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do
               %span.glyphicon.glyphicon-trash
+  = link_to new_free_spot_path, class: 'btn btn-lg btn-primary pull-right' do
+    %span.glyphicon.glyphicon-plus Dodaj
