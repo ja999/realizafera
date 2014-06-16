@@ -1,3 +1,5 @@
 class GraphicSerializer < ActiveModel::Serializer
-  attributes :date, :productions
+  attributes :date
+
+  has_many :productions
 end

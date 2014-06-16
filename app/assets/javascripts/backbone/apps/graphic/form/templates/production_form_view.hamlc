@@ -1,0 +1,7 @@
+%input{ type: 'number', name: 'start_hour', min: 0, max: 23, value: @start_hour }
+:
+%input{ type: 'number', name: 'start_minute', min: 0, max: 59, value: @start_minute }
+-
+%input{ type: 'number', name: 'end_hour', min: 0, max: 23, value: @end_hour }
+:
+%input{ type: 'number', name: 'end_minute', min: 0, max: 59, value: @end_minute }

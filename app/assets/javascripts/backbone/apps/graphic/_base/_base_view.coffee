@@ -18,6 +18,9 @@
 
   class Base.ProductionsView extends App.Views.CompositeView
     template: 'graphic/_base/productions'
-    itemView: Base.ProductionView
+    itemView: App.Views.Shared.WrapperView
     itemViewContainer: '.js-container-productions'
     emptyView: Base.ProductionsEmptyView
+
+    triggers:
+      'click .js-add-production' : 'add:production:clicked'

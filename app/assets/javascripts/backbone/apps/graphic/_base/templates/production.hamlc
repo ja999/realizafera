@@ -1,1 +1,1 @@
-%p #{@start_day} #{@start_hour}:#{@start_minute} -  #{@end_day} #{@end_hour}:#{@end_minute}
+%p #{@start_hour}:#{@start_minute} -  #{@end_hour}:#{@end_minute}
