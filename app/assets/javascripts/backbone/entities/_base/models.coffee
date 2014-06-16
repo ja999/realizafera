@@ -4,6 +4,8 @@
 
   class Entities.Model extends Backbone.AssociatedModel
 
+    isEntity: true
+
     fetch: (options = {}) ->
       _.defaults options,
         error: (model, xhr) ->
