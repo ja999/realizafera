@@ -17,6 +17,7 @@ gem 'simple_form', '3.1.0.rc1'
 gem 'sass-rails', '~> 4.0.0'
 gem 'haml-rails'
 gem 'bootstrap-sass'
+gem 'protected_attributes'
 
 gem 'gon'
 gem 'jquery-rails'
