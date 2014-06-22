@@ -1,7 +1,24 @@
-%input{ type: 'number', name: 'start_hour', min: 0, max: 23, value: @start_hour }
-:
-%input{ type: 'number', name: 'start_minute', min: 0, max: 59, value: @start_minute }
--
-%input{ type: 'number', name: 'end_hour', min: 0, max: 23, value: @end_hour }
-:
-%input{ type: 'number', name: 'end_minute', min: 0, max: 59, value: @end_minute }
+Start
+.row
+  .col-lg-6
+    %select{ class: 'form-control', type: 'number', name: 'start_hour', min: 0, max: 23, value: @start_hour }
+      %option Godzina
+      - _.each _.range(0, 24), (hour) ->
+        %option= hour
+  .col-lg-6
+    %select{ class: 'form-control', type: 'number', name: 'start_minute', min: 0, max: 59, value: @start_minute }
+      %option Minuty
+      - _.each _.range(0, 60), (minute) ->
+        %option= minute
+Koniec
+.row
+  .col-lg-6
+    %select{ class: 'form-control', type: 'number', name: 'end_hour', min: 0, max: 23, value: @end_hour }
+      %option Godzina
+      - _.each _.range(0, 24), (hour) ->
+        %option= hour
+  .col-lg-6
+    %select{ class: 'form-control', type: 'number', name: 'end_minute', min: 0, max: 59, value: @end_minute }
+      %option Minuty
+      - _.each _.range(0, 60), (minute) ->
+        %option= minute
