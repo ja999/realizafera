@@ -1,2 +1,2 @@
 .js-container-productions
-%a.js-add-production{ href: '#' } + Add production
+%a.js-add-production{ class: 'btn btn-success' href: '#' } + Dodaj realizacje
