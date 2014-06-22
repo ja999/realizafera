@@ -24,3 +24,7 @@
 
     triggers:
       'click .js-add-production' : 'add:production:clicked'
+
+  class Base.WrapperView extends App.Views.Shared.WrapperView
+    triggers:
+      'click .js-remove-production' : 'remove:button:clicked'
