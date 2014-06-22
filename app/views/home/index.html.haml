@@ -1,2 +1,10 @@
 .container
-  %h1 GŁÓWNA TABELKA!
+  - for i in 0..6
+    .row
+      = Production::DAYS[i]
+      - productions.where(start_day: i).each do |production|
+        = production.id
+        = production.start_hour
+        = production.start_minute
+        = production.end_hour
+        = production.end_minute
