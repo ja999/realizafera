@@ -8,9 +8,12 @@ class FreeSpot < ActiveRecord::Base
   validates :start_hour, :end_hour,     inclusion: { in: (0..23) }
   validates :start_minute, :end_minute, inclusion: { in: (0..59) }
 
-  attr_accessible :start_day, :end_day,
-:start_hour, :end_hour,
-:start_minute, :end_minute
+  attr_accessible :start_day,
+                  :end_day,
+                  :start_hour,
+                  :end_hour,
+                  :start_minute,
+                  :end_minute
 
   DAYS = {
     'poniedziałek' => '0',
