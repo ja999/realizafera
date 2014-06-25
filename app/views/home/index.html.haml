@@ -1,10 +1,10 @@
 .container
-  - for i in 0..6
+  - Production::DAYS.each_with_index do |day, index|
     .row
-      = Production::DAYS[i]
-      - productions.where(start_day: i).each do |production|
-        = production.id
-        = production.start_hour
-        = production.start_minute
-        = production.end_hour
-        = production.end_minute
+      = day
+      - productions.where(start_day: index).each do |production|
+        .col-lg-12
+          = production.start_hour
+          = production.start_minute
+          = production.end_hour
+          = production.end_minute
