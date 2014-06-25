@@ -22,10 +22,8 @@ class Production < ActiveRecord::Base
   DAYS = ['niedziela', 'poniedziałek', 'wtorek', 'środa', 'czwartek', 'piątek', 'sobota']
 
   def self.incident_with_wday(wday)
-    where("
-       (start_day <= end_day AND start_day <= ? AND ? <= end_day)
-    OR (start_day > end_day AND (start_day <= ? OR ? <= end_day))
-    ", wday, wday, wday, wday)
+    where('start_day <= ? AND ? <= end_day', wday, wday)
+  end
 
   private
 
