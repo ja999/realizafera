@@ -13,7 +13,8 @@ class Production < ActiveRecord::Base
                   :end_day,
                   :end_hour,
                   :end_minute,
-                  :repetitive
+                  :repetitive,
+                  :user_id
 
   DAYS = ['niedziela', 'poniedziałek', 'wtorek', 'środa', 'czwartek', 'piątek', 'sobota']
 

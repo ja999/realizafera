@@ -3,7 +3,7 @@
     .row
       .col-lg-12
         = f.label :user
-        = f.collection_select :user, User.all, :id, :email
+        = f.collection_select :user_id, User.all, :id, :email
     .row
       .col-lg-12
         = f.submit 'Save', class: 'btn btn-default'

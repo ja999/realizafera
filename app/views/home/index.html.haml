@@ -7,6 +7,11 @@
           - productions.select { |p| p.start_day == index }.each do |production|
             = link_to edit_production_path(production) do
               .col-lg-2
+                .producer
+                  - if production.user.present?
+                    = production.user.name
+                  - else
+                    Pusto!
                 .pull-left
                   = "#{production.start_hour}:#{production.start_minute}"
                 .pull-right

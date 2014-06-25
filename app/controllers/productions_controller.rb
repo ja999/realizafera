@@ -37,6 +37,6 @@ class ProductionsController < ApplicationController
   end
 
   def production_params
-    params.require(:production).slice(:start_day, :start_hour, :start_minute, :end_day, :end_hour, :end_minute, :repetitive)
+    params.require(:production).slice(:start_day, :start_hour, :start_minute, :end_day, :end_hour, :end_minute, :repetitive, :user_id)
   end
 end
