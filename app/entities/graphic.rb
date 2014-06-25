@@ -10,12 +10,13 @@ class Graphic
   end
 
   def productions
-    @productions ||= fetch_productions
+    @productions ||= fetch_productions.to_a
   end
 
   private
 
   def fetch_productions
-    Production.incident_with_wday(date.wday).to_a
+    Production.incident_with_wday(date.wday).order(:start_day, :start_hour, :start_minute,
+                                                   :end_day, :end_hour, :end_minute)
   end
 end
