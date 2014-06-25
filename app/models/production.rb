@@ -9,6 +9,7 @@ class Production < ActiveRecord::Base
   validates :start_minute, :end_minute, inclusion: { in: (0..59) }
 
   validate :too_long_validator
+  validate :too_short_validator
   before_validation :check_end_day
 
   attr_accessible :start_day,
@@ -35,6 +36,11 @@ class Production < ActiveRecord::Base
   def too_long_validator
     too_long = (end_day - start_day > 1) || (end_day < start_day)
     errors.add(:end_day, "You can't define a production longer than day") if too_long
+  end
+
+  def too_short_validator
+    too_short = (start_day == end_day) && (start_hour == end_hour) && (start_minute == end_minute)
+    errors.add(:end_day, "You can't define a production that lasts 0 minutes") if too_short
   end
   end
 end
