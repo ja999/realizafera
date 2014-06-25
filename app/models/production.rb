@@ -10,6 +10,8 @@ class Production < ActiveRecord::Base
 
   validate :too_long_validator
   validate :too_short_validator
+  validate :overlapping_validator
+
   before_validation :check_end_day
 
   attr_accessible :start_day,
@@ -42,5 +44,13 @@ class Production < ActiveRecord::Base
     too_short = (start_day == end_day) && (start_hour == end_hour) && (start_minute == end_minute)
     errors.add(:end_day, "You can't define a production that lasts 0 minutes") if too_short
   end
+
+  def overlapping_validator
+    no_overlapping_productions = self.class.where("start_day <= ? AND (start_hour * 60 + start_minute < ?)"\
+      "AND end_day >= ? AND (end_hour * 60 + end_minute > ?)", end_day, end_hour * 60 + end_minute,
+                                                                start_day, start_hour * 60 + start_minute)
+    no_overlapping_productions = no_overlapping_productions.where('id != ?', id) if id.present?
+    no_overlapping_productions = no_overlapping_productions.count
+    errors.add(:start_day, 'This production overlaps with another one') unless no_overlapping_productions.zero?
   end
 end
