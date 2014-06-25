@@ -10,7 +10,6 @@ class ProductionsController < ApplicationController
   end
 
   def update
-    save_resource
     respond_to do |format|
       format.html { edit_resource }
       format.json { save_resource }
