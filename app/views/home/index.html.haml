@@ -1,10 +1,14 @@
 .container
-  - Production::DAYS.each_with_index do |day, index|
-    .row
-      = day
-      - productions.where(start_day: index).each do |production|
+  .container-fluid
+    - Production::DAYS.each_with_index do |day, index|
+      .row
+        = day
         .col-lg-12
-          = production.start_hour
-          = production.start_minute
-          = production.end_hour
-          = production.end_minute
+          - productions.select { |p| p.start_day == index }.each do |production|
+            .col-lg-2
+              .pull-left
+                = production.start_hour
+                = production.start_minute
+              .pull-right
+                = production.end_hour
+                = production.end_minute

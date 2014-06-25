@@ -1,6 +1,7 @@
 class ProductionsController < ApplicationController
   expose(:production, attributes: :production_params)
   respond_to :json
+  respond_to :html, only: [:update]
 
   alias_method :resource, :production
 
@@ -10,6 +11,10 @@ class ProductionsController < ApplicationController
 
   def update
     save_resource
+    respond_to do |format|
+      format.html { edit_resource }
+      format.json { save_resource }
+    end
   end
 
   def destroy
