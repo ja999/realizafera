@@ -7,8 +7,6 @@
           - productions.select { |p| p.start_day == index }.each do |production|
             .col-lg-2
               .pull-left
-                = production.start_hour
-                = production.start_minute
+                = "#{production.start_hour}:#{production.start_minute}"
               .pull-right
-                = production.end_hour
-                = production.end_minute
+                = "#{production.end_hour}:#{production.end_minute}"
