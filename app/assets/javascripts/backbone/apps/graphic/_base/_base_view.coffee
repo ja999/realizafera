@@ -11,6 +11,16 @@
   class Base.ProductionView extends App.Views.ItemView
     template: 'graphic/_base/production'
 
+    timeFormat: (time) -> time.format('HH:mm')
+
+    timeFormatted: ->
+      startTime = @timeFormat(@model.startTime())
+      endTime   = @timeFormat(@model.endTime())
+      [startTime, endTime].join(' - ')
+
+    serializeData: ->
+      _.extend super, { timeFormatted: @timeFormatted() }
+
 
   class Base.ProductionsEmptyView extends App.Views.ItemView
     template: 'graphic/_base/productions_empty'
