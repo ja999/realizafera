@@ -3,7 +3,8 @@ class Production < ActiveRecord::Base
 
   belongs_to :user
 
-  validates :start_day, :end_day,       inclusion: { in: (0..6)  }
+  validates :start_day,                 inclusion: { in: (0..6)  }
+  validates :end_day,                   inclusion: { in: (0..7)  }
   validates :start_hour, :end_hour,     inclusion: { in: (0..23) }
   validates :start_minute, :end_minute, inclusion: { in: (0..59) }
 
