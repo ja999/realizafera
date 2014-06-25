@@ -16,12 +16,12 @@ class FreeSpot < ActiveRecord::Base
                   :end_minute
 
   DAYS = {
-    'poniedziałek' => '0',
-    'wtorek' => '1',
-    'środa' => '2',
-    'czwartek' => '3',
-    'piątek' => '4',
-    'sobota' => '5',
-    'niedziela' => '6',
+    'niedziela' => '0',
+    'poniedziałek' => '1',
+    'wtorek' => '2',
+    'środa' => '3',
+    'czwartek' => '4',
+    'piątek' => '5',
+    'sobota' => '6',
   }
 end

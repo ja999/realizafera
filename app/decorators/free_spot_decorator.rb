@@ -1,7 +1,7 @@
 class FreeSpotDecorator < Draper::Decorator
   delegate_all
 
-  DAYS = ['poniedziałek', 'wtorek', 'środa', 'czwartek', 'piątek', 'sobota', 'niedziela']
+  DAYS = ['niedziela', 'poniedziałek', 'wtorek', 'środa', 'czwartek', 'piątek', 'sobota']
 
   def start_date
     day = DAYS.fetch(model.start_day).capitalize

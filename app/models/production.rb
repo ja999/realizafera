@@ -15,7 +15,7 @@ class Production < ActiveRecord::Base
                   :end_minute,
                   :repetitive
 
-  DAYS = ['poniedziałek', 'wtorek', 'środa', 'czwartek', 'piątek', 'sobota', 'niedziela']
+  DAYS = ['niedziela', 'poniedziałek', 'wtorek', 'środa', 'czwartek', 'piątek', 'sobota']
 
   def self.incident_with_wday(wday)
     where("
