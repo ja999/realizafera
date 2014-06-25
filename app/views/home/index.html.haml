@@ -5,8 +5,9 @@
         = day
         .col-lg-12
           - productions.select { |p| p.start_day == index }.each do |production|
-            .col-lg-2
-              .pull-left
-                = "#{production.start_hour}:#{production.start_minute}"
-              .pull-right
-                = "#{production.end_hour}:#{production.end_minute}"
+            = link_to edit_production_path(production) do
+              .col-lg-2
+                .pull-left
+                  = "#{production.start_hour}:#{production.start_minute}"
+                .pull-right
+                  = "#{production.end_hour}:#{production.end_minute}"

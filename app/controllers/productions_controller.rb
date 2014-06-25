@@ -29,6 +29,14 @@ class ProductionsController < ApplicationController
     render json: resource, status: status
   end
 
+  def edit_resource
+    if production.update_attributes!(production_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
   def production_params
     params.require(:production).slice(:start_day, :start_hour, :start_minute, :end_day, :end_hour, :end_minute, :repetitive)
   end
