@@ -5,6 +5,7 @@ gem 'rails', '4.0.3'
 gem 'pg'
 
 gem 'active_model_serializers'
+gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'oj'
 gem 'decent_exposure'
 gem 'decent_decoration'
