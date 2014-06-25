@@ -16,15 +16,16 @@
     template: 'graphic/_base/productions_empty'
 
 
+  class Base.WrapperView extends App.Views.Shared.WrapperView
+    triggers:
+      'click .js-remove-production' : 'remove:button:clicked'
+
+
   class Base.ProductionsView extends App.Views.CompositeView
     template: 'graphic/_base/productions'
-    itemView: App.Views.Shared.WrapperView
+    itemView: Base.WrapperView
     itemViewContainer: '.js-container-productions'
     emptyView: Base.ProductionsEmptyView
 
     triggers:
       'click .js-add-production' : 'add:production:clicked'
-
-  class Base.WrapperView extends App.Views.Shared.WrapperView
-    triggers:
-      'click .js-remove-production' : 'remove:button:clicked'
