@@ -1,11 +1,9 @@
 %h1.title GRAFIK
 #js-main-region.main-container
 
-:javascript
-  $(function() {
-    Realizafera.start({
-      environment: gon.environment,
+:coffee
+  $ ->
+    Realizafera.start
+      environment: gon.environment
       currentUser: gon.current_user
-    })
-  })
 
