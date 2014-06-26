@@ -24,6 +24,7 @@ gem 'gon'
 gem 'jquery-rails'
 gem 'js_stack'
 gem 'spinjs-rails'
+gem 'mail'
 
 group :assets do
   gem 'coffee-rails', '~> 4.0.0'
