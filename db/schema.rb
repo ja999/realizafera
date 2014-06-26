@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140625154247) do
+ActiveRecord::Schema.define(version: 20140626225850) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,12 +50,13 @@ ActiveRecord::Schema.define(version: 20140625154247) do
     t.integer  "end_day"
     t.integer  "end_hour"
     t.boolean  "repetitive"
-    t.boolean  "cancelled"
+    t.boolean  "cancelled",         default: false
     t.boolean  "confirmed_by_user"
     t.integer  "user_id"
     t.integer  "start_minute"
     t.integer  "end_minute"
     t.datetime "assigned_date"
+    t.boolean  "reminded",          default: false
   end
 
   add_index "productions", ["user_id"], name: "index_productions_on_user_id", using: :btree
