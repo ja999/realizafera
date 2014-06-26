@@ -31,18 +31,18 @@ class Production < ActiveRecord::Base
 
   def in_progress
     if (start_day == end_day)
-      if Time.now.wday == start_day
-          && Time.now.hour > start_hour
-          && Time.now.hour < end_hour
+      if Time.now.wday == start_day && Time.now.hour > start_hour && Time.now.hour < end_hour
         return true
       else
         return false
+      end
     else
-      if (Time.now.wday == start_day && Time.now.hour > start_hour)
-          || (Time.now.hour < end_hour)
+      if (Time.now.wday == start_day && Time.now.hour > start_hour) || (Time.now.hour < end_hour)
         return true
       else
         return false
+      end
+    end
   end
 
   def self.clean_ongoing_production

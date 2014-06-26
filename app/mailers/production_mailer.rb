@@ -17,7 +17,7 @@ class ProductionMailer < ActionMailer::Base
   end
 
 
-  def remind_about_productions
+  def remind_about_productions (productions)
     # TODO
   end
 
