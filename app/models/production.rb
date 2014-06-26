@@ -29,6 +29,28 @@ class Production < ActiveRecord::Base
     where('start_day <= ? AND ? <= end_day', wday, wday)
   end
 
+  def in_progress
+    if (start_day == end_day)
+      if Time.now.wday == start_day
+          && Time.now.hour > start_hour
+          && Time.now.hour < end_hour
+        return true
+      else
+        return false
+    else
+      if (Time.now.wday == start_day && Time.now.hour > start_hour)
+          || (Time.now.hour < end_hour)
+        return true
+      else
+        return false
+  end
+
+  def self.clean_ongoing_production
+    # This method is regularly called by cron
+    # TODO Check if there is some ongoing production and reset its reminded field
+  end
+
+
   private
 
   def check_end_day

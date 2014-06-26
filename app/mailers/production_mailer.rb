@@ -1,6 +1,7 @@
 class ProductionMailer < ActionMailer::Base
   default from: "artur@a4w.pl"
 
+
   def welcome_user (user)
 
     smtp_settings = {:port => 587,
@@ -13,6 +14,32 @@ class ProductionMailer < ActionMailer::Base
     @user = user
     @url = 'http://www.example.com/login'
   	mail(to: @user.email, subject: 'Witaj w serwisie RealizAfera!')
+  end
+
+
+  def remind_about_productions
+    # TODO
+  end
+
+
+  def incoming_productions_reminder
+    # This method is regularly called by cron
+    Production.all.each do |p|
+      # For each comming production
+      dayDiff = (p.start_day + 7 - Time.now.wday) % 7
+      hourDiff = 24 * dayDiff + p.start_hour - Time.now.hour
+
+      # If production is close (at most 30h) and wasn't reminded yet then remind about it
+      if hourDiff < 30 # TODO && p.reminded == false
+        msg = ProductionMailer.remind_about_productions(p)
+        msg.deliver
+      end
+    end
+  end
+
+  def weekly_reminder
+    # This method is regularly called by cron
+    # TODO
   end
 
 end
