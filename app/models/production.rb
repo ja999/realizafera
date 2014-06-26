@@ -21,6 +21,7 @@ class Production < ActiveRecord::Base
                   :end_hour,
                   :end_minute,
                   :repetitive,
+                  :cancelled,
                   :user_id
 
   DAYS = ['niedziela', 'poniedziałek', 'wtorek', 'środa', 'czwartek', 'piątek', 'sobota']
