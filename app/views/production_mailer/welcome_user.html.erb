@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+	</head>
+
+	<body>
+		<h1>Witaj w serwisie RealizAfera, <%= @user.name %>! </h1>
+
+		<p>
+			Udało Ci się zarejestrować w na realizafera.pl,
+			twój login, to: <%= @user.login %>.<br>
+		</p>
+
+		<p>
+			Aby zalogować się do serwisu kliknij ten link: <%= @url %>.
+		</p>
+
+		<p>Witamy na pokładzie!</p>
+	</body>
+</html>
