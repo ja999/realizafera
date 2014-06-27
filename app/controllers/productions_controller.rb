@@ -16,6 +16,8 @@ class ProductionsController < ApplicationController
   respond_to :json
   respond_to :html, only: [:update, :my_productions, :user_annulments]
 
+  before_action :authenticate_admin_user!, only: [:create, :destroy, :edit]
+
   alias_method :resource, :production
 
   def create

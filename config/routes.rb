@@ -1,6 +1,6 @@
 Realizafera::Application.routes.draw do
   ActiveAdmin.routes(self)
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
   root 'home#index'
 
   get 'chief/graphic' => 'chief#graphic'
