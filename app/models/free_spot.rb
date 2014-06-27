@@ -24,4 +24,32 @@ class FreeSpot < ActiveRecord::Base
     'piątek' => '5',
     'sobota' => '6',
   }
+
+  def self.available_people dstart, dend, hstart, hend, current_user_id
+    available_users = []
+    available_users << self.where('
+      start_day <= :wday_start AND
+      :wday_end <= end_day AND
+      start_hour <= :hour_start AND
+      :hour_end <= end_hour AND
+      user_id != :user',
+      wday_start: dstart,
+      wday_end: dend,
+      hour_start: hstart,
+      hour_end: hend,
+      user: current_user_id
+    ).map(&:user)
+    available_users << self.where('
+      end_day < start_day AND
+      :wday_end <= end_day AND
+      :hour_end <= end_hour AND
+      user_id != :user',
+      wday_start: dstart,
+      wday_end: dend,
+      hour_start: hstart,
+      hour_end: hend,
+      user: current_user_id
+    ).map(&:user)
+    available_users
+  end
 end
