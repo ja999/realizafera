@@ -17,7 +17,7 @@ class ProductionMailer < ActionMailer::Base
   	mail(to: @user.email, subject: 'Witaj w serwisie RealizAfera!')
   end
 
-  def self.productions_reminder user, productions
+  def productions_reminder user, productions
     @user = user.decorate
     @productions = productions.decorate
     @url = "#{request.domain}/my_productions"
@@ -34,7 +34,7 @@ class ProductionMailer < ActionMailer::Base
     mail(to: @user.email, subject: 'RealizAfera - przypomnienie o realizacjach! Ku chwale Afery!')
   end
 
-  def self.send_productions_reminder
+  def send_productions_reminder
     # This method is regularly called by cron
     Production.assigned.group_by(&:user).each do |user, productions|
       productions.each do |p|
@@ -50,7 +50,7 @@ class ProductionMailer < ActionMailer::Base
     end
   end
 
-  def self.production_opening user_from, user_to, production
+  def production_opening user_from, user_to, production
     @user_to = user_to.decorate
     @user_from = user_from.decorate
     @production = production.decorate
@@ -68,9 +68,9 @@ class ProductionMailer < ActionMailer::Base
     mail(to: @user_to.email, subject: 'RealizAfera - potrzebna pomoc! Wolna realizacja na giełdzie!')
   end
 
-  def self.send_production_opening current_user, users, production
     users.each do |user_to|
       msg = production_opening current_user, user_to, production
+  def send_production_opening current_user, users, production
       msg.deliver
     end
   end
