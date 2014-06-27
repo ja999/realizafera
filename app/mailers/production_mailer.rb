@@ -35,8 +35,7 @@ class ProductionMailer < ActionMailer::Base
         msg = ProductionMailer.remind_about_productions(p)
         msg.deliver
 
-        p.reminded = true
-        p.save
+        p.update_attribute(reminded: true)
       end
     end
   end
