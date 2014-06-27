@@ -9,8 +9,8 @@
     <p>
       Uprzejmie przypominamy o Twoich realizacjach:
       <% @productions.each do |p| %>
-        <%= p.start_date.downcase %>
-        <%= p.end_date.downcase %>
+        <%= p.decorate.start_date.downcase %>
+        <%= p.decorate.end_date.downcase %>
       <% end %>
       Ku chwale Afery!
     </p>

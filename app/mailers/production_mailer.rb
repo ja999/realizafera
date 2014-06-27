@@ -19,7 +19,7 @@ class ProductionMailer < ActionMailer::Base
 
   def productions_reminder user, productions
     @user = user.decorate
-    @productions = productions.decorate
+    @productions = productions
     @url = "www.realizafera.herokuapp.com/my_productions"
 
     smtp_settings = {
