@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+
+  <body>
+    <h1>Witaj, <%= @user_to.first_name %>!</h1>
+    <h3>Piszemy do Ciebie, ponieważ Aferowicz <%= @user_from.name %> potrzebuje pomocy!</h3>
+    </p>
+      <%= @user_from.name %> ze względu na [...tu wstaw wymówkę, z której skorzystał/a <%= @user_from.first_name %>] musiał/a odwołać następującą realizację:
+      <%= @production.start_date.downcase %>
+      <%= @production.end_date.downcase %>
+      Według informacji wpisanych w RealizAferze ten termin jest dla Ciebie wolny.
+    </p>
+    <p>
+      Pomożesz?
+      Ku chwale Afery!
+    </p>
+    <p>
+      Pozdrawiamy,
+      Wesoła załoga RealizAfery
+    </p>
+  </body>
+</html>
