@@ -13,14 +13,14 @@ class ProductionMailer < ActionMailer::Base
     }
 
     @user = user
-    @url = 'http://www.example.com/login'
+    @url = 'www.realizafera.herokuapp.com/login'
   	mail(to: @user.email, subject: 'Witaj w serwisie RealizAfera!')
   end
 
   def productions_reminder user, productions
     @user = user.decorate
     @productions = productions.decorate
-    @url = "#{request.domain}/my_productions"
+    @url = "www.realizafera.herokuapp.com/my_productions"
 
     smtp_settings = {
       port: 587,
@@ -54,7 +54,7 @@ class ProductionMailer < ActionMailer::Base
     @user_to = user_to.decorate
     @user_from = user_from.decorate
     @production = production.decorate
-    @url = "#{request.domain}/exchange"
+    @url = "www.realizafera.herokuapp.com/exchange"
 
     smtp_settings = {
       port: 587,
