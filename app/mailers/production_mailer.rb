@@ -2,7 +2,7 @@ class ProductionMailer < ActionMailer::Base
   default from: "artur@a4w.pl"
 
 
-  def welcome_user (user)
+  def welcome_user user
 
     smtp_settings = {
       port: 587,
@@ -19,7 +19,7 @@ class ProductionMailer < ActionMailer::Base
   end
 
 
-  def remind_about_productions (production)
+  def remind_about_productions production
     # TODO
   end
 
