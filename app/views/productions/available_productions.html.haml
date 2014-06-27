@@ -1,0 +1,27 @@
+.container
+  %h2 Wolne realizacje
+  .panel.panel-warning
+    .panel-heading
+      .panel-title
+        Tutaj znajdują się wszystkie nie przypisane jeszcze realizacje. Masz wtedy czas? Przygarnij jedną! :) ...albo cztery.
+  - if free_productions.any?
+    %table.table.table-hover
+      %thead
+        %tr
+          %td Start
+          %td Koniec
+          %td Actions
+      %tbody
+        - free_productions.each do |prod|
+          %tr
+            %td= prod.start_date
+            %td= prod.end_date
+            %td
+              = link_to claim_production_path(prod), data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' do
+                %span.glyphicon.glyphicon-heart
+                  %strong Przygarnij realizację
+  - else
+    .panel.panel-success
+      .panel-heading
+        .panel-title
+          Pusto! Afera jest uratowana! :)

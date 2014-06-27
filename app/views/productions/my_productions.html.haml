@@ -1,17 +1,27 @@
 .container
   %h2 Moje realizacje
-  %table.table.table-hover
-    %thead
-      %tr
-        %td Od
-        %td Do
-        %td Actions
-    %tbody
-      - user_productions.each do |prod|
+  .panel.panel-info
+    .panel-heading
+      .panel-title
+        Tutaj znajdują się Twoje realizacje. :) Nie zaśpij! ;)
+  - if user_productions.any?
+    %table.table.table-hover
+      %thead
         %tr
-          %td= prod.start_date
-          %td= prod.end_date
-          %td
-            = link_to cancel_production_path(prod), data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do
-              %span.glyphicon.glyphicon-remove
-                %strong Anuluj realizację
+          %td Od
+          %td Do
+          %td Actions
+      %tbody
+        - user_productions.each do |prod|
+          %tr
+            %td= prod.start_date
+            %td= prod.end_date
+            %td
+              = link_to cancel_production_path(prod), data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do
+                %span.glyphicon.glyphicon-remove
+                  %strong Anuluj realizację
+  - else
+    .panel.panel-danger
+      .panel-heading
+        .panel-title
+          Nie masz żadnych zaplanowanych realizacji! Tak nie może być!

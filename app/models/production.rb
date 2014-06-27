@@ -15,6 +15,7 @@ class Production < ActiveRecord::Base
   before_validation :check_end_day
 
   scope :assigned, -> { where.not(user_id: nil) }
+  scope :not_assigned, -> { where(user_id: nil) }
 
   attr_accessible :start_day,
                   :start_hour,
@@ -56,7 +57,6 @@ class Production < ActiveRecord::Base
       end
     end
   end
-
 
   private
 

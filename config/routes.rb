@@ -8,6 +8,7 @@ Realizafera::Application.routes.draw do
   get 'my_productions' => 'productions#my_productions'
   get 'user_annulments' => 'productions#user_annulments'
   get 'exchange' => 'productions#exchange'
+  get 'available_productions' => 'productions#available_productions'
 
   resources :productions do
     member do
