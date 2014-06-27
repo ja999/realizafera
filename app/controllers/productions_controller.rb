@@ -38,8 +38,16 @@ class ProductionsController < ApplicationController
   def exchange; end
 
   def cancel
-    production.update_attribute(:cancelled, true)
     flash[:notice] = 'Anulowano realizacje. ...a może jednak dasz radę się pojawić? :)'
+    free_users = FreeSpot.available_people(
+      production.start_day,
+      production.end_day,
+      production.start_hour,
+      production.end_hour,
+      current_user.id
+    )
+    production.update_attribute(:cancelled, true)
+    ProductionMailer.send_production_opening current_user, free_users, production
     redirect_to user_annulments_path
   end
 
