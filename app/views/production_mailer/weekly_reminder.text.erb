@@ -1,0 +1,19 @@
+Witaj, <%= @user.first_name %>!
+---------------------------------------------------------------
+
+Oto, specjalnie dla Ciebie, cotygodniowy przegląd realizacji!
+W najbliższym czasie czekają Cię następujące realizacje:
+<%= @yourProductions.each do |p| %>
+  * <%= p.decorate.start_date.downcase %> - <%= p.decorate.end_date.downcase %>
+<% end %>
+
+Gdyby Ci tego było mało, to są jeszcze wolne terminy:
+<% @freeProductions.each do |p| %>
+  * <% p.decorate.start_date.downcase %> - <%= p.decorate.end_date.downcase %> <% if !p.user.nil? %>(<%= p.user.first_name %> szuka zastępcy)<% end %>
+<% end %>
+
+
+Ku chwale Afery!
+
+Pozdrawiamy,
+Wesoła załoga RealizAfery

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+
+  <body>
+    <h1>Witaj, <%= @user.first_name %>!</h1><hr>
+    <p>
+      Oto, specjalnie dla Ciebie, cotygodniowy przegląd realizacji!
+      W najbliższym czasie czekają Cię następujące realizacje:
+      <ul>
+        <% @yourProductions.each do |p| %>
+          <li><%= p.decorate.start_date.downcase %> - <%= p.decorate.end_date.downcase %> </li>
+        <% end %>
+      </ul>
+    </p>
+
+    <p>
+      Gdyby Ci tego było mało, to są jeszcze wolne terminy:
+      <ul>
+        <% @freeProductions.each do |p| %>
+          <li>
+            <%= p.decorate.start_date.downcase %> - <%= p.decorate.end_date.downcase %> <% if p.nil? %>(<%= p.user.first_name %> szuka zastępcy) <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </p>
+
+    <p>
+      Ku chwale Afery!
+
+      Pozdrawiamy,
+      Wesoła załoga RealizAfery
+    </p>
+  </body>
+</html>

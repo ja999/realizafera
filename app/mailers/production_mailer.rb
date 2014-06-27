@@ -42,7 +42,7 @@ class ProductionMailer < ActionMailer::Base
         dayDiff = (p.start_day + 7 - Time.now.wday) % 7
         hourDiff = 24 * dayDiff + p.start_hour - Time.now.hour
 
-        user_productions << p if hourDiff < 30 && p.reminded == false
+        user_productions << p if 0 < hourDiff && hourDiff < 30 && p.reminded == false
       end
       if user_productions.length > 0
         msg = productions_reminder user, user_productions
@@ -70,7 +70,7 @@ class ProductionMailer < ActionMailer::Base
     mail(to: @user_to.email, subject: 'RealizAfera - potrzebna pomoc! Wolna realizacja na giełdzie!')
   end
 
-  def send_production_opening current_user, production
+  def send_production_opening current_user, free_users, production
     allUsers = User.all
     users = []
     
@@ -86,10 +86,33 @@ class ProductionMailer < ActionMailer::Base
     end
   end
 
-  def self.weekly_reminder
-    # This method is regularly called by cron
+  def user_weekly_reminder user
+    @yourProductions = user.productions.all
+    @freeProductions = []
+
     Production.all.each do |p|
-      # TODO
+      @freeProductions << p if p.user == nil || p.cancelled == true
+    end
+    @user = user
+    @url = "www.realizafera.herokuapp.com/exchange"
+
+    smtp_settings = {
+      port: 587,
+      domain:               "mail.a4w.pl",
+      user_name:            "artur",
+      password:             "",
+      authentication:       "plain",
+      enable_starttls_auto: true,
+    }
+
+    mail(to: @user.email, subject: 'RealizAfera - Podsumowanie tygodnia')
+  end
+
+  def weekly_reminder
+    # This method is regularly called by cron
+    User.all.each do |usr|
+      msg = user_weekly_reminder(usr)
+      msg.deliver
     end
   end
 end

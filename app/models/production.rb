@@ -49,11 +49,11 @@ class Production < ActiveRecord::Base
     end
   end
 
-  def self.clean_ongoing_production
+  def self.clean_ongoing_productions
     # This method is regularly called by cron
     Production.all.each do |prod|
       if prod.repetitive && prod.in_progress
-        prod.update_attribute(reminded: false)
+        prod.update_attribute(:reminded, false)
       end
     end
   end
