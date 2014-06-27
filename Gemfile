@@ -25,6 +25,7 @@ gem 'js_stack'
 gem 'spinjs-rails'
 gem 'mail'
 gem 'whenever', :require => false
+gem 'rails_admin'
 
 group :assets do
   gem 'coffee-rails', '~> 4.0.0'

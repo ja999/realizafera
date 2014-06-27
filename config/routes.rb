@@ -1,5 +1,5 @@
 Realizafera::Application.routes.draw do
-  ActiveAdmin.routes(self)
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: { registrations: "registrations" }
   root 'home#index'
 
