@@ -72,13 +72,14 @@ class ProductionMailer < ActionMailer::Base
 
   def send_production_opening current_user, production
     allUsers = User.all
+    users = []
+    
     allUsers.each do |usr|
       if usr.got_free_spot_for(production)
         users << usr
       end
     end
 
-    users = []
     users.flatten.compact.each do |user_to|
       msg = production_opening current_user, user_to, production
       msg.deliver

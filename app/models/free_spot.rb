@@ -53,7 +53,7 @@ class FreeSpot < ActiveRecord::Base
     available_users
   end
 
-  def self.enough_for production
+  def enough_for production
     startDayDiff = (production.start_day + 7 - Time.now.wday) % 7
     startHourDiff = 24 * startDayDiff + production.start_hour - Time.now.hour
     startMinuteDiff = 60 * startHourDiff + production.start_minute - Time.now.min
