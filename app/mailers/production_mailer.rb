@@ -68,9 +68,9 @@ class ProductionMailer < ActionMailer::Base
     mail(to: @user_to.email, subject: 'RealizAfera - potrzebna pomoc! Wolna realizacja na giełdzie!')
   end
 
-    users.each do |user_to|
-      msg = production_opening current_user, user_to, production
   def send_production_opening current_user, users, production
+    users.flatten.compact.each do |user_to|
+      msg = production_opening current_user, user_to, production
       msg.deliver
     end
   end
