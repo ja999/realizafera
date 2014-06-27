@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+
+  <body>
+    <h1>Witaj, <%= @user.first_name %>!</h1>
+    <p>
+      Uprzejmie przypominamy o Twoich realizacjach:
+      <% @productions.each do |p| %>
+        <%= p.start_date.downcase %>
+        <%= p.end_date.downcase %>
+      <% end %>
+      Ku chwale Afery!
+    </p>
+    <p>
+      Pozdrawiamy,
+      Wesoła załoga RealizAfery
+    </p>
+  </body>
+</html>

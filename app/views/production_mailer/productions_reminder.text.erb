@@ -1,0 +1,13 @@
+Witaj, <%= @user.first_name %>!
+-------------------------------------------------
+
+Uprzejmie przypominamy o Twoich realizacjach:
+<% @productions.each do |p| %>
+  <%= p.start_date.downcase %>
+  <%= p.end_date.downcase %>
+<% end %>
+Ku chwale Afery!
+
+
+Pozdrawiamy,
+Wesoła załoga RealizAfery

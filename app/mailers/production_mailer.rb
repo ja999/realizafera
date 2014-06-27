@@ -17,10 +17,24 @@ class ProductionMailer < ActionMailer::Base
   	mail(to: @user.email, subject: 'Witaj w serwisie RealizAfera!')
   end
 
-  def remind_about_productions user, productions
+  def productions_reminder user, productions
+    @user = user.decorate
+    @productions = productions.decorate
+    @url = "#{request.domain}/my_productions"
+
+    smtp_settings = {
+      port: 587,
+      domain:               "mail.a4w.pl",
+      user_name:            "artur",
+      password:             "",
+      authentication:       "plain",
+      enable_starttls_auto: true,
+    }
+
+    mail(to: @user.email, subject: 'RealizAfera - przypomnienie o realizacjach! Ku chwale Afery!')
   end
 
-  def incoming_productions_reminder
+  def send_productions_reminder
     # This method is regularly called by cron
     Production.assigned.group_by(&:user).each do |user, productions|
       productions.each do |p|
@@ -30,7 +44,7 @@ class ProductionMailer < ActionMailer::Base
 
         user_productions << p if hourDiff < 30 && p.reminded == false
       end
-      msg = remind_about_productions user, user_productions
+      msg = productions_reminder user, user_productions
       msg.deliver
       user_productions.each { |prod| prod.update_attribute(reminded: true) }
     end
