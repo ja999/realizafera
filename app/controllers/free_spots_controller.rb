@@ -2,14 +2,14 @@ class FreeSpotsController < ApplicationController
   expose_decorated :free_spot
   expose_decorated :free_spots
 
-  def index
-  end
+  def index; end
 
   def new; end
 
   def create
     free_spot.user = current_user
     if free_spot.update_attributes!(free_spot_params)
+      flash[:success] = 'Utworzono wolny termin.'
       redirect_to free_spots_path
     else
       render :new

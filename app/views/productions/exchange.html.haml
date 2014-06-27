@@ -1,0 +1,29 @@
+.container
+  %h2 Giełda realizacji
+  .panel.panel-info
+    .panel-heading
+      .panel-title
+        Tutaj znajdują się anulowane realizacje oczekujące na przejęcie. Nie ignoruj ich, każdy czasem powinien mieć wolne, więc wspomóż kolegę/koleżankę. ;)
+  - if cancelled_productions.any?
+    %table.table.table-hover
+      %thead
+        %tr
+          %td Anulował\a
+          %td Od
+          %td Do
+          %td Actions
+      %tbody
+        - cancelled_productions.each do |prod|
+          %tr
+            %td= prod.user.name
+            %td= prod.start_date
+            %td= prod.end_date
+            %td
+              = link_to claim_production_path(prod), data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' do
+                %span.glyphicon.glyphicon-refresh
+                  %strong Przejmij!
+  - else
+    .panel.panel-success
+      .panel-heading
+        .panel-title
+          Giełda jest pusta! :)

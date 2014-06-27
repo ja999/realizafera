@@ -6,6 +6,9 @@ class ProductionsController < ApplicationController
   expose_decorated(:cancelled_user_productions, decorator: ProductionDecorator) {
     Production.where('user_id = :curr_user AND cancelled = true', curr_user: current_user)
   }
+  expose_decorated(:cancelled_productions, decorator: ProductionDecorator) {
+    Production.where(cancelled: true)
+  }
 
   respond_to :json
   respond_to :html, only: [:update, :my_productions, :user_annulments]
@@ -28,18 +31,24 @@ class ProductionsController < ApplicationController
     render json: {}
   end
 
-  def my_productions
-  end
+  def my_productions; end
 
-  def user_annulments
-  end
+  def user_annulments; end
+
+  def exchange; end
 
   def cancel
     production.update_attribute(:cancelled, true)
+    flash[:notice] = 'Anulowano realizacje. ...a może jednak dasz radę się pojawić? :)'
     redirect_to user_annulments_path
   end
 
   def claim
+    if production.user_id != current_user.id
+      flash[:success] = 'Przejąłeś realizację! :) Dzięki za pomoc!'
+    else
+      flash[:error] = 'Przejąłeś swoją własną realizacje... Na pewno o to Ci chodziło? o_O'
+    end
     production.update_attributes(cancelled: false, user_id: current_user.id)
     redirect_to my_productions_path
   end
