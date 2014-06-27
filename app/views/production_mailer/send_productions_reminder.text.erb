@@ -3,8 +3,7 @@ Witaj, <%= @user.first_name %>!
 
 Uprzejmie przypominamy o Twoich realizacjach:
 <% @productions.each do |p| %>
-  <%= p.decorate.start_date.downcase %>
-  <%= p.decorate.end_date.downcase %>
+  * <%= p.decorate.start_date.downcase %> - <%= p.decorate.end_date.downcase %>
 <% end %>
 Ku chwale Afery!
 

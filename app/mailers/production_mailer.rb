@@ -37,16 +37,18 @@ class ProductionMailer < ActionMailer::Base
   def send_productions_reminder
     # This method is regularly called by cron
     Production.assigned.group_by(&:user).each do |user, productions|
+      user_productions = []
       productions.each do |p|
-        user_productions = []
         dayDiff = (p.start_day + 7 - Time.now.wday) % 7
         hourDiff = 24 * dayDiff + p.start_hour - Time.now.hour
 
         user_productions << p if hourDiff < 30 && p.reminded == false
       end
-      msg = productions_reminder user, user_productions
-      msg.deliver
-      user_productions.each { |prod| prod.update_attribute(reminded: true) }
+      if user_productions.length > 0
+        msg = productions_reminder user, user_productions
+        msg.deliver
+        user_productions.each { |prod| prod.update_attribute(:reminded, true) }
+      end
     end
   end
 
@@ -68,7 +70,15 @@ class ProductionMailer < ActionMailer::Base
     mail(to: @user_to.email, subject: 'RealizAfera - potrzebna pomoc! Wolna realizacja na giełdzie!')
   end
 
-  def send_production_opening current_user, users, production
+  def send_production_opening current_user, production
+    allUsers = User.all
+    allUsers.each do |usr|
+      if usr.got_free_spot_for(production)
+        users << usr
+      end
+    end
+
+    users = []
     users.flatten.compact.each do |user_to|
       msg = production_opening current_user, user_to, production
       msg.deliver

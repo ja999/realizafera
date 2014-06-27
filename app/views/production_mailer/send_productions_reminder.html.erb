@@ -8,10 +8,11 @@
     <h1>Witaj, <%= @user.first_name %>!</h1>
     <p>
       Uprzejmie przypominamy o Twoich realizacjach:
-      <% @productions.each do |p| %>
-        <%= p.decorate.start_date.downcase %>
-        <%= p.decorate.end_date.downcase %>
-      <% end %>
+      <ul>
+        <% @productions.each do |p| %>
+          <li> <%= p.decorate.start_date.downcase %> - <%= p.decorate.end_date.downcase %> </li>
+        <% end %>
+      </ul>
       Ku chwale Afery!
     </p>
     <p>

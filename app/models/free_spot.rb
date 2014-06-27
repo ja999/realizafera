@@ -52,4 +52,28 @@ class FreeSpot < ActiveRecord::Base
     ).map(&:user)
     available_users
   end
+
+  def self.enough_for production
+    startDayDiff = (production.start_day + 7 - Time.now.wday) % 7
+    startHourDiff = 24 * startDayDiff + production.start_hour - Time.now.hour
+    startMinuteDiff = 60 * startHourDiff + production.start_minute - Time.now.min
+
+    endDayDiff = (production.end_day + 7 - Time.now.wday) % 7
+    endHourDiff = 24 * endDayDiff + production.end_hour - Time.now.hour
+    endMinuteDiff = 60 * endHourDiff + production.end_minute - Time.now.min
+
+    startDayDiffFree = (self.start_day + 7 - Time.now.wday) % 7
+    startHourDiffFree = 24 * startDayDiffFree + self.start_hour - Time.now.hour
+    startMinuteDiffFree = 60 * startHourDiffFree + self.start_minute - Time.now.min
+
+    endDayDiffFree = (self.end_day + 7 - Time.now.wday) % 7
+    endHourDiffFree = 24 * endDayDiffFree + self.end_hour - Time.now.hour
+    endMinuteDiffFree = 60 * endHourDiffFree + self.end_minute - Time.now.min
+
+    if startMinuteDiffFree <= startMinuteDiff && endMinuteDiff <= endMinuteDiffFree
+      return true
+    else
+      return false
+    end
+  end
 end

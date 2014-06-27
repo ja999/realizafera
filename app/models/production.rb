@@ -50,7 +50,11 @@ class Production < ActiveRecord::Base
 
   def self.clean_ongoing_production
     # This method is regularly called by cron
-    # TODO Check if there is some ongoing production and reset its reminded field
+    Production.all.each do |prod|
+      if prod.repetitive && prod.in_progress
+        prod.update_attribute(reminded: false)
+      end
+    end
   end
 
 

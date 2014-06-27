@@ -5,8 +5,7 @@ Piszemy do Ciebie, ponieważ Aferowicz <%= @user_from.name %> potrzebuje pomocy!
 
 
 <%= @user_from.name %> ze względu na [...tu wstaw wymówkę, z której skorzystał/a <%= @user_from.first_name %>] musiał/a odwołać następującą realizację:
-<%= @production.start_date.downcase %>
-<%= @production.end_date.downcase %>
+<%= @production.decorate.start_date.downcase %> - <%= @production.decorate.end_date.downcase %>
 Według informacji wpisanych w RealizAferze ten termin jest dla Ciebie wolny.
 Odwiedź <%= @url %> pokaż, że w Aferze nikt nie jest sam!
 
