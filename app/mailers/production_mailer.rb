@@ -4,12 +4,14 @@ class ProductionMailer < ActionMailer::Base
 
   def welcome_user (user)
 
-    smtp_settings = {:port => 587,
-      :domain               => "mail.a4w.pl",
-      :user_name            => "artur",
-      :password             => "",
-      :authentication       => "plain",
-      :enable_starttls_auto => true}
+    smtp_settings = {
+      port: 587,
+      domain:               "mail.a4w.pl",
+      user_name:            "artur",
+      password:             "",
+      authentication:       "plain",
+      enable_starttls_auto: true,
+    }
 
     @user = user
     @url = 'http://www.example.com/login'
