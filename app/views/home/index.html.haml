@@ -5,7 +5,20 @@
         = day
         .col-lg-12
           - productions.select { |p| p.start_day == index }.each do |production|
-            = link_to edit_production_path(production) do
+            - if user_is_admin?
+              = link_to edit_production_path(production) do
+                .col-lg-2.production
+                  .producer
+                    - if production.user.present?
+                      = production.user.name
+                    - else
+                      Pusto!
+                  .timeline
+                    .pull-left
+                      = "#{production.start_hour}:#{production.start_minute}"
+                    .pull-right
+                      = "#{production.end_hour}:#{production.end_minute}"
+            - else
               .col-lg-2.production
                 .producer
                   - if production.user.present?
@@ -17,3 +30,4 @@
                     = "#{production.start_hour}:#{production.start_minute}"
                   .pull-right
                     = "#{production.end_hour}:#{production.end_minute}"
+

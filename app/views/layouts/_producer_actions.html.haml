@@ -4,4 +4,5 @@
     = link_to 'Moje realizacje', my_productions_path
     = link_to 'Moje anulowane realizacje', user_annulments_path
     = link_to 'Wolne realizacje', available_productions_path
-    = link_to 'Grafik szefa', '/chief/graphic#week'
+    - if user_is_admin?
+      = link_to 'Grafik szefa', '/chief/graphic#week'
