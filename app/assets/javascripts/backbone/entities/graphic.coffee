@@ -30,7 +30,7 @@
       graphic
 
     getGraphics: ->
-      start_date = moment().startOf('isoWeek')
+      start_date = moment()    #.startOf('isoWeek')
       graphics = _.map _.range(0, 6 + 1), (index) ->
         graphic = new Graphic.Model
           date: start_date.clone().add(index, 'days')
