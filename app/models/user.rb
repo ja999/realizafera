@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   has_many :free_spots
   has_many :productions
 
+  attr_accessible :first_name, :last_name, :email, :password, :password_confirmation
+
   def got_free_spot_for production
   	flag = false
   	self.free_spots.all.each do |spot|
