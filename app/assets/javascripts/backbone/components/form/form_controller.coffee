@@ -23,7 +23,9 @@
 
     processFormSubmit: (data, model, collection) ->
       model.save data,
-        collection: collection
+        collection: collection,
+        error: -> alert 'Nie można stworzyć realizacji w tych godzinach. :('
+
 
     onClose: ->
       # console.log "onClose", @
