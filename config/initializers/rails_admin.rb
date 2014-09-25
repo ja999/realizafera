@@ -17,7 +17,7 @@ RailsAdmin.config do |config|
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
 
   config.authorize_with do |controller|
-    redirect_to main_app.root_path, notice: "You're not an admin!" unless current_user.try(:admin)
+    redirect_to main_app.root_path, notice: "Nie masz uprawnień, żeby tam wściubiać nos... ;)" unless current_user.try(:admin)
   end
 
   config.actions do
