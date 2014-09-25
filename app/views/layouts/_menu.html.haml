@@ -19,7 +19,7 @@
           %li
             %a= "Zalogowano jako: #{ current_user.email }"
           %li.dropdown
-            %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+            %a.dropdown-toggle{ data: { toggle: 'dropdown' }, href: '#' }
               %span.glyphicon.glyphicon-cog
               %b.caret
             %ul.dropdown-menu
