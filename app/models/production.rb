@@ -11,6 +11,7 @@ class Production < ActiveRecord::Base
   validate :too_long_validator
   validate :too_short_validator
   validate :overlapping_validator
+  validate :negative_time_validator
 
   before_validation :check_end_day
 
@@ -72,6 +73,12 @@ class Production < ActiveRecord::Base
   def too_short_validator
     too_short = (start_day == end_day) && (start_hour == end_hour) && (start_minute == end_minute)
     errors.add(:end_day, "You can't define a production that lasts 0 minutes") if too_short
+  end
+
+  def negative_time_validator
+    negative_time = (start_day == end_day) && (start_hour > end_hour)
+    negative_time ||= (start_day == end_day) && (start_hour == end_hour) && (start_minute > end_minute)
+    errors.add(:end_day, "You can't define a production has less than 0 minutes") if negative_time
   end
 
   def overlapping_validator
