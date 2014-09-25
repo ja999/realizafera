@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :pass_variables_to_gon
   before_action :authenticate_user!
+  before_filter :configure_permitted_parameters, if: :devise_controller?
 
   private
 
@@ -16,6 +17,12 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
       false
     end
+  end
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:account_update) { |u|
+      u.permit(:password, :password_confirmation, :current_password)
+    }
   end
 
   def user_is_admin?
