@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable
 
   validates :email, :first_name, :last_name, presence: true
+  validates :password, length: { in: 6..128 }
+  validates :password_confirmation, length: { in: 6..128 }, on: :update
+  validate :matching_passwords, on: :update
 
   has_many :free_spots
   has_many :productions
@@ -21,5 +24,11 @@ class User < ActiveRecord::Base
 
   def is_admin?
     admin
+  end
+
+  private
+
+  def matching_passwords
+    errors.add(:given_passwords, 'do not match') unless password_confirmation == password
   end
 end
